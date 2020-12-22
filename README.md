@@ -7,7 +7,7 @@ pairwise_fst.py will run FST calculations on all pairwise populations within a f
 No additional files are necessary other than the plink data.
 
 pairwise_fst.py calls plink through bash, which means you need to have
-plink installed in your bin (on mac /usr/local/bin) for the program to run 
+plink installed in your bin for the program to run 
 properly. https://zzz.bwh.harvard.edu/plink/download.shtml
 
 Python modules required: pandas-plink, numpy, pandas
