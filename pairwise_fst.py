@@ -144,12 +144,10 @@ def pairwise_fst(prefix):
 	clean8.communicate()
 
 	os.chdir('../')
+	
+	#now output heatmap from R (this Rscript can be changed depending on how you would like your figure to look
+	#Simply edit the script or write a new one and pipe it through this command to customize the output
 	make_matrix = subprocess.Popen('Rscript matrix.R', shell = True)
 	make_matrix.communicate()
 pairwise_fst(prefix)
 
-#Now output a pretty heat map from R!
-
-#To do:
-#Make the output quiet
-#pipe into the heatmap from R
