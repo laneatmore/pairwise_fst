@@ -125,6 +125,8 @@ def pairwise_fst(prefix):
 	pairwise_fst['fst'] = pairwise_fst['fst'].map(lambda x: x.lstrip('Mean Fst estimate: ').rstrip('\n'))
 	pairwise_fst['fst'] = pairwise_fst['fst'].replace('Error: --fst requires at least two nonempty clusters.', 0, regex = True)
 	pairwise_fst = pairwise_fst.mask(pairwise_fst.applymap(lambda s: 'End time:' in s if isinstance(s, str) else False))
+	pairwise_fst['fst'] = pd.to_numeric(pairwise_fst['fst'])
+	pairwise_fst['fst'] = pairwise_fst['fst'].apply(lambda x : x if x > 0 else 0)
 	pairwise_fst['col_name'] = pairwise_fst['pops'].str.split('.').map(lambda x: x[1])
 	pairwise_fst['row_name'] = pairwise_fst['pops'].str.split('.').map(lambda x: x[0])
 	pairwise_fst = pairwise_fst.pivot(index='row_name', columns ='col_name', values ='fst')
