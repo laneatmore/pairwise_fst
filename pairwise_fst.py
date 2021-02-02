@@ -32,9 +32,6 @@ def check_args(prefix):
 		exit()
 	else:
 		pass
-check_args(prefix)
-
-print("Running with file prefix " + prefix)
 
 def check_output():
 	if path.exists('output'):
@@ -42,7 +39,6 @@ def check_output():
 		exit()
 	else:
 		pass
-check_output()
 
 #First thing we need to do is create the pairwise table for calculating Fst between
 #all populations
@@ -150,6 +146,13 @@ def pairwise_fst(prefix):
 	#now output heatmap from R (this Rscript can be changed depending on how you would like your figure to look
 	#Simply edit the script or write a new one and pipe it through this command to customize the output
 	make_matrix = subprocess.Popen('Rscript matrix.R', shell = True)
-	make_matrix.communicate()
-pairwise_fst(prefix)
 
+def main():
+	check_args(prefix)
+	print("Running with file prefix " + prefix)
+	check_output()
+	pairwise_fst(prefix)
+	make_matrix.communicate()
+
+if __name__ == '__main__':
+	main()
