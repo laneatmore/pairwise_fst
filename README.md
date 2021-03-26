@@ -21,7 +21,7 @@ pairwise_fst.py uses the Rscript matrix.R
 matrix.R should be in the same directory as pairwise_fst.py
 
 It takes a minute or two to finish running.
-A new folder named "Output" will be created
+A new folder named "Output" will be created.
 Within this folder is your paired populations (CSV), a pairwise FST matrix (CSV), and
 a distance matrix of your data built in R (PDF). Also within Output/ will be the folder
 "PLINK_out". This folder will contain .clust files that were input to PLINK and 
